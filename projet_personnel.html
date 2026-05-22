@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets Personnels — Laureen Dolon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <header>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="projet_personnel.html">Projets personnels</a></li>
+        </ul>
+    </header>
+
+    <main class="hero">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">Créations personnelles</p>
+            <h1>Projets <em>Personnels</em></h1>
+            <p>Mes réalisations en dehors du cadre scolaire — sites web et affiches graphiques.</p>
+        </div>
+    </main>
+
+     <!-- Banderole défilante -->
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            <span>HTML</span><span class="sep">✦</span>
+            <span>CSS</span><span class="sep">✦</span>
+            <span>JavaScript</span><span class="sep">✦</span>
+            <span>Responsive</span><span class="sep">✦</span>
+            <span>Photoshop</span><span class="sep">✦</span>
+            <span>Illustrator</span><span class="sep">✦</span>
+            <span>Photographie</span><span class="sep">✦</span>
+            <span>HTML</span><span class="sep">✦</span>
+            <span>CSS</span><span class="sep">✦</span>
+            <span>JavaScript</span><span class="sep">✦</span>
+            <span>React</span><span class="sep">✦</span>
+            <span>Typographie</span><span class="sep">✦</span>
+            <span>Responsive</span><span class="sep">✦</span>
+            <span>Docker</span><span class="sep">✦</span>
+            <span>Canva</span><span class="sep">✦</span>
+            <span>Krita</span><span class="sep">✦</span>
+            <span>Photoshop</span><span class="sep">✦</span>
+            <span>Illustrator</span><span class="sep">✦</span>
+            <span>Python</span><span class="sep">✦</span>
+            <span>Instagram</span><span class="sep">✦</span>
+            <span>Facebook</span><span class="sep">✦</span>
+            <span>LinkedIn</span><span class="sep">✦</span>
+            <span>Tiktok</span><span class="sep">✦</span>
+        </div>
+    </div>
+
+    <!-- Filtres -->
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="sites">Sites Web</button>
+        <button class="filter-btn" data-filter="affiches">Affiches</button>
+    </div>
+
+    <!-- Sous-catégorie : Sites Web -->
+    <section class="projects-section">
+        <div class="category-label">
+            <span class="category-line"></span>
+            <span class="category-name">Sites Web</span>
+            <span class="category-line"></span>
+        </div>
+
+        <article class="project-card" data-category="sites">
+            <div class="project-img project-img--empty">
+                <span class="project-img-label">Image du projet</span>
+            </div>
+            <div class="project-info">
+                <div class="project-tags">
+                    <span class="project-tag">HTML</span>
+                    <span class="project-tag">CSS</span>
+                </div>
+                <h2 class="project-title">Nom du site <em>01</em></h2>
+                <p class="project-desc">Courte description du projet. Expliquez l'objectif, les technologies utilisées et ce que vous avez appris.</p>
+                <a href="#" class="project-link">Voir le projet →</a>
+            </div>
+        </article>
+
+        <article class="project-card project-card--reverse" data-category="sites">
+            <div class="project-img project-img--empty">
+                <span class="project-img-label">Image du projet</span>
+            </div>
+            <div class="project-info">
+                <div class="project-tags">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">Figma</span>
+                </div>
+                <h2 class="project-title">Nom du site <em>02</em></h2>
+                <p class="project-desc">Courte description du projet. Expliquez l'objectif, les technologies utilisées et ce que vous avez appris.</p>
+                <a href="#" class="project-link">Voir le projet →</a>
+            </div>
+        </article>
+
+        <!-- Sous-catégorie : Affiches -->
+        <div class="category-label">
+            <span class="category-line"></span>
+            <span class="category-name">Affiches</span>
+            <span class="category-line"></span>
+        </div>
+
+        <div class="posters-grid">
+            <article class="poster-card" data-category="affiches" onclick="openLightbox(this)">
+                <div class="poster-img">
+                    <img src="images/frutiger_aero.png" alt="Frutiger Aero">
+                </div>
+                <div class="poster-info">
+                    <h3 class="poster-title">Frutiger Aero</h3>
+                    <p class="poster-desc">Photoshop</p>
+                </div>
+            </article>
+            <article class="poster-card" data-category="affiches" onclick="openLightbox(this)">
+                <div class="poster-img">
+                    <img src="images/affiche02.jpg" alt="Nom de l'affiche 02">
+                </div>
+                <div class="poster-info">
+                    <h3 class="poster-title">Nom de l'affiche <em>02</em></h3>
+                    <p class="poster-desc">Outils / contexte</p>
+                </div>
+            </article>
+            <article class="poster-card" data-category="affiches" onclick="openLightbox(this)">
+                <div class="poster-img">
+                    <img src="images/affiche03.jpg" alt="Nom de l'affiche 03">
+                </div>
+                <div class="poster-info">
+                    <h3 class="poster-title">Nom de l'affiche <em>03</em></h3>
+                    <p class="poster-desc">Outils / contexte</p>
+                </div>
+            </article>
+        </div>
+
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="">
+            <p id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Overlay de transition -->
+    <div class="page-overlay"></div>
+
+    
+    <script>
+        // Filtres
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('[data-category]').forEach(el => {
+                    if (filter === 'all' || el.dataset.category === filter) {
+                        el.style.display = '';
+                        el.style.animation = 'fadeUp 0.5s ease forwards';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+                document.querySelectorAll('.category-label').forEach(label => {
+                    label.style.display = filter === 'all' ? '' : 'none';
+                });
+                if (filter === 'sites') {
+                    document.querySelectorAll('.category-label')[0].style.display = '';
+                } else if (filter === 'affiches') {
+                    document.querySelectorAll('.category-label')[1].style.display = '';
+                }
+            });
+        });
+
+        // Lightbox
+        function openLightbox(card) {
+            const img = card.querySelector('img');
+            const caption = card.querySelector('.poster-title').innerText;
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-img').alt = img.alt;
+            document.getElementById('lightbox-caption').innerText = caption;
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

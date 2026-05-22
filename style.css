@@ -1,0 +1,1057 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --fond: #0e0a1a;
+    --texte: #ede8f5;
+    --accent: #b48aff;
+    --gris: #9a88b8;
+}
+
+body {
+    background: var(--fond);
+    background-image:
+        radial-gradient(ellipse at 15% 10%, rgba(180, 138, 255, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 80%, rgba(140, 80, 255, 0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, rgba(200, 170, 255, 0.08) 0%, transparent 70%);
+    background-attachment: fixed;
+    color: var(--texte);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem 4rem;
+    background: linear-gradient(to bottom, rgba(14, 10, 26, 0.97), transparent);
+    backdrop-filter: blur(6px);
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--texte);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: opacity 0.3s, color 0.3s;
+    position: relative;
+}
+
+header a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+header a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+/* ── HERO ── */
+.hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 6rem 4rem 4rem;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    width: 38vw;
+    height: 38vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(150, 80, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(167, 118, 255, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-inner {
+    text-align: center;
+    animation: fadeUp 1.2s ease both;
+}
+
+.hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s both;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+    color: var(--texte);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s both;
+}
+
+h1 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.hero p {
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--gris);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s both;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid rgba(180, 138, 255, 0.35);
+    padding: 1rem 2.5rem;
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s both;
+}
+
+.hero-cta:hover {
+    background: var(--accent);
+    color: var(--texte);
+    border-color: var(--accent);
+    gap: 1.2rem;
+}
+
+/* ── LIGNE DÉCO ── */
+.deco-line {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    margin: 3rem auto 0;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s both;
+}
+
+/* ── BANDEROLE DÉFILANTE ── */
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(180, 138, 255, 0.15);
+
+
+    backdrop-filter: blur(4px);
+    padding: 1rem 0;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-track span {
+    font-size: 0.72rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--texte);
+    white-space: nowrap;
+    padding: 0 1.6rem;
+}
+
+.marquee-track .sep {
+    color: rgba(180, 138, 255, 0.4);
+    font-size: 0.55rem;
+    padding: 0;
+    letter-spacing: 0;
+}
+
+/* ── TRANSITION DE PAGE ── */
+.page-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--fond);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.page-overlay.hide {
+    opacity: 0;
+}
+
+.page-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+
+/* ── CARTES ── */
+.cards-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    padding: 5rem 6rem 8rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 2.8rem;
+    text-decoration: none;
+    color: var(--texte);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(180, 138, 255, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 4px 32px rgba(130, 60, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    transition: box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
+}
+
+/* Reflet en haut de la carte */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.18), transparent);
+}
+
+/* Lueur violette au survol */
+.card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: 0 0 0 0 rgba(180, 138, 255, 0);
+    transition: box-shadow 0.45s ease;
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(180, 138, 255, 0.45);
+    box-shadow:
+        0 8px 40px rgba(100, 40, 255, 0.15),
+        0 0 80px rgba(140, 80, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.card:hover::after {
+    box-shadow:
+        0 0 30px 6px rgba(180, 138, 255, 0.18),
+        0 0 80px 12px rgba(140, 80, 255, 0.08);
+}
+
+.card-tag {
+    font-size: 0.63rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.65;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    opacity: 0.3;
+    line-height: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card:hover .card-icon {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--texte);
+}
+
+.card-title em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    line-height: 1.85;
+    color: var(--gris);
+    flex: 1;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.6;
+    transition: opacity 0.3s ease, gap 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.card:hover .card-link {
+    opacity: 1;
+    gap: 0.9rem;
+}
+
+@media (max-width: 680px) {
+    .cards-section {
+        grid-template-columns: 1fr;
+        padding: 4rem 2rem 6rem;
+    }
+}
+
+/* ── LUEUR CURSEUR ── */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(220, 190, 255, 0.28) 0%, rgba(200, 160, 255, 0.1) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+    transition: opacity 0.3s ease;
+}
+
+/* ── GRILLE PROJETS ── */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 5rem 6rem 8rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.25s; }
+.project-card:nth-child(3) { animation-delay: 0.4s; }
+
+.project-card--reverse {
+    direction: rtl;
+}
+.project-card--reverse > * {
+    direction: ltr;
+}
+
+/* Zone image */
+.project-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-img--empty {
+    background: rgba(180, 138, 255, 0.07);
+    border: 1px dashed rgba(180, 138, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover .project-img--empty {
+    background: rgba(180, 138, 255, 0.12);
+    border-color: rgba(180, 138, 255, 0.5);
+}
+
+.project-img-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.5;
+}
+
+/* Infos projet */
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.project-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(180, 138, 255, 0.1);
+    border: 1px solid rgba(180, 138, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--texte);
+}
+
+.project-title em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.project-desc {
+    font-size: 0.875rem;
+    line-height: 1.85;
+    color: var(--gris);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, gap 0.3s ease;
+    margin-top: 0.4rem;
+    width: fit-content;
+    border-bottom: 1px solid rgba(180, 138, 255, 0.3);
+    padding-bottom: 0.3rem;
+}
+
+.project-link:hover {
+    opacity: 1;
+    gap: 0.9rem;
+}
+
+/* Séparateur entre projets */
+.project-card + .project-card {
+    padding-top: 5rem;
+    border-top: 1px solid rgba(180, 138, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 4rem 2rem 6rem;
+    }
+    .project-card,
+    .project-card--reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 2rem;
+    }
+}
+
+/* ── FILTRES ── */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 3rem 2rem 0;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(180, 138, 255, 0.2);
+    color: var(--texte);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    opacity: 1;
+    border-color: rgba(180, 138, 255, 0.5);
+    color: var(--accent);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    opacity: 1;
+}
+
+/* ── LABEL CATÉGORIE ── */
+.category-label {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 4rem 0 3rem;
+}
+
+.category-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(180, 138, 255, 0.2), transparent);
+}
+
+.category-name {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+/* ── GRILLE AFFICHES ── */
+.posters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.poster-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.poster-card:hover {
+    transform: translateY(-4px);
+}
+
+.poster-img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.poster-img--empty {
+    background: rgba(180, 138, 255, 0.07);
+    border: 1px dashed rgba(180, 138, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.poster-card:hover .poster-img--empty {
+    background: rgba(180, 138, 255, 0.13);
+    border-color: rgba(180, 138, 255, 0.5);
+}
+
+.poster-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.poster-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--texte);
+}
+
+.poster-title em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.poster-desc {
+    font-size: 0.75rem;
+    color: var(--gris);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .posters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .posters-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── 3 CARTES ── */
+.cards-section--three {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+}
+
+@media (max-width: 900px) {
+    .cards-section--three {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── LAYOUT 2+1 CARTES ── */
+.cards-section--three {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.cards-section--three .card:last-child {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+    .cards-section--three {
+        grid-template-columns: 1fr;
+    }
+    .cards-section--three .card:last-child {
+        grid-column: auto;
+    }
+}
+
+/* ── 3 CARTES MÊME LIGNE ── */
+.cards-section--three {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.cards-section--three .card:last-child {
+    grid-column: auto !important;
+}
+
+/* ── TITRE CARTE SUR UNE LIGNE ── */
+.cards-section--three .card-title {
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    white-space: nowrap;
+}
+
+/* ── IMAGE AFFICHES ── */
+.poster-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ── CADRE AFFICHES ── */
+.poster-img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(180, 138, 255, 0.2);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.poster-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.poster-card:hover .poster-img {
+    border-color: rgba(180, 138, 255, 0.5);
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(180, 138, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(14, 10, 26, 0.92);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    cursor: zoom-out;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    max-width: 80vw;
+    max-height: 90vh;
+    transform: scale(0.85);
+    transition: transform 0.4s ease;
+    cursor: default;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(180, 138, 255, 0.15);
+    border: 1px solid rgba(180, 138, 255, 0.2);
+}
+
+.lightbox-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--accent);
+    opacity: 0.8;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 2rem;
+    right: 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(180, 138, 255, 0.3);
+    color: var(--texte);
+    font-size: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Curseur pointer sur les affiches */
+.poster-card {
+    cursor: zoom-in;
+}
+
+/* ── CURSEUR ZOOM ── */
+.poster-card {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    cursor: zoom-out;
+}
+
+/* ── CURSEUR PERSONNALISÉ ── */
+* {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: difference;
+}
+
+/* Point central */
+.custom-cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 99999;
+}
+
+/* Cercle qui suit */
+.custom-cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(180, 138, 255, 0.7);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.35s ease, height 0.35s ease, border-color 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 99998;
+}
+
+/* Hover sur liens et boutons */
+.cursor-hover .custom-cursor-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+}
+
+.cursor-hover .custom-cursor-ring {
+    width: 56px;
+    height: 56px;
+    border-color: var(--accent);
+    opacity: 0.5;
+}
+
+/* Hover zoom-in affiches */
+.cursor-zoom .custom-cursor-dot {
+    width: 40px;
+    height: 40px;
+    background: rgba(180, 138, 255, 0.15);
+    border: 1px solid rgba(180, 138, 255, 0.6);
+}
+
+.cursor-zoom .custom-cursor-ring {
+    opacity: 0;
+}
+
+/* ── BULLES FOND ── */
+.bubbles-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(200, 170, 255, 0.18), rgba(150, 100, 255, 0.06));
+    border: 1px solid rgba(180, 138, 255, 0.15);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(-110vh) translateX(var(--drift)) scale(1.1); opacity: 0; }
+}
+
+/* ── BULLES RÉPULSION ── */
+.bubble {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+/* ── CORRECTION RÉPULSION ── */
+.bubble {
+    will-change: left, bottom;
+}
+.bubble-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(200, 170, 255, 0.18), rgba(150, 100, 255, 0.06));
+    border: 1px solid rgba(180, 138, 255, 0.15);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── BULLE WRAPPER SANS STYLE ── */
+.bubble {
+    background: none !important;
+    border: none !important;
+}
+
+/* ── BULLES LIBRES (override animation CSS) ── */
+.bubble {
+    animation: none !important;
+    position: fixed !important;
+    background: none !important;
+    border: none !important;
+}
+
+/* ── IMAGE PROJET VISIBLE À 100% ── */
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: rgba(180, 138, 255, 0.04);
+}
+
+/* ── CARTES OPAQUES ── */
+.project-card,
+.card,
+.poster-card {
+    background: rgba(20, 14, 36, 0.92) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    isolation: isolate;
+    z-index: 1;
+    position: relative;
+}
+
+.project-img--empty {
+    background: rgba(180, 138, 255, 0.08) !important;
+}
+
+/* ── IMAGE DANS SA CASE ── */
+.project-img {
+    overflow: hidden !important;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── OPACITÉ UNIQUEMENT SUR L'IMAGE ── */
+.project-card,
+.card,
+.poster-card {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.project-img {
+    background: rgba(20, 14, 36, 0.92);
+}
+
+.project-img img {
+    opacity: 0.92;
+}
