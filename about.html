@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO</title>
+    <title>PORTFOLIO | À Propos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
+        <a href="index.html" class="logo">
+            <img src="images/favicon.png" alt="Logo Portfolio">
+            
+            </a>
+
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="projets.html">Projets</a></li>
@@ -19,7 +25,7 @@
         </ul>
     </header>
 
-    <main class="hero">
+    <main class="hero about-hero">
         <div class="hero-inner">
             <p class="hero-eyebrow">Qui suis-je ?</p>
             <h1>À <em>Propos</em></h1>
@@ -27,8 +33,6 @@
         </div>
     </main>
 
-
-    <!-- Banderole défilante -->
     <div class="marquee-wrapper">
         <div class="marquee-track">
             <span>HTML</span><span class="sep">✦</span>
@@ -57,10 +61,100 @@
         </div>
     </div>
 
-    <!-- Overlay de transition -->
+    <div class="about-container">
+
+        <section class="about-section elegant-section">
+            
+            
+            <div class="elegant-text-block">
+                <h2 class="elegant-title">Mon <em>Objectif</em></h2>
+                <p class="elegant-desc">
+                    Passionnée par la création numérique, je m'intéresse autant au design qu'au code. Curieuse, motivée et appliquée, j'aime apprendre continuellement et concevoir des projets soignés.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-section elegant-section">
+            
+            
+            <div class="elegant-text-block">
+                <h2 class="elegant-title">Mes <em>Outils</em></h2>
+                
+                <div class="tools-minimal-container">
+                    <div class="tools-minimal-group">
+                        <h4>Design & Image</h4>
+                        <div class="project-tags centered-tags">
+                            <span class="project-tag">Photoshop</span>
+                            <span class="project-tag">Illustrator</span>
+                            <span class="project-tag">Krita</span>
+                            <span class="project-tag">Canva</span>
+                            <span class="project-tag">Photographie</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-minimal-group">
+                        <h4>Développement</h4>
+                        <div class="project-tags centered-tags">
+                            <span class="project-tag">HTML / CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">GitHub</span>
+                            <span class="project-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-section-header" style="justify-content: center; text-align: center; flex-direction: column; gap: 0.5rem; margin-bottom: 3.5rem; border-bottom: none;">
+                
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 600; color: var(--texte); margin: 0;">Mon <em style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; color: var(--accent);">Parcours</em></h2>
+            </div>
+
+            <div class="timeline-centered">
+                <div class="card timeline-card">
+                    <span class="timeline-date-tag">2025 — Aujourd'hui</span>
+                    <h3 class="card-title" style="font-size: 1.8rem;">BUT Métiers du multimédia et de l'internet</h3>
+                    <p class="card-desc">IUT de Troyes</p>
+                </div>
+
+                <div class="card timeline-card">
+                    <span class="timeline-date-tag">2024 — 2025</span>
+                    <h3 class="card-title" style="font-size: 1.8rem;">BUT Génie Mécanique et Productique</h3>
+                    <p class="card-desc">IUT de Troyes</p>
+                </div>
+
+                <div class="card timeline-card">
+                    <span class="timeline-date-tag">2022 — 2024</span>
+                    <h3 class="card-title" style="font-size: 1.8rem;">Baccalauréat STI2D</h3>
+                    <p class="card-desc">Spécialité Innovation Technologique<br>Lycée Irène et Frédéric Joliot-Curie</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section elegant-section">
+            
+            
+            <div class="elegant-text-block">
+                <h2 class="elegant-title">Curriculum <em>Vitae</em></h2>
+                <p class="elegant-desc">
+                    Retrouvez le détail complet de mes formations et de mes expériences professionnelles en téléchargeant mon profil au format PDF.
+                </p>
+                
+                <div class="cv-actions" style="margin-top: 2rem;">
+                    <a href="pdf/Cv.pdf" target="_blank" class="btn-cv">Consulter</a>
+                    <a href="pdf/Cv.pdf" download="Mon_CV.pdf" class="btn-cv outline">Télécharger</a>
+                </div>
+            </div>
+        </section>
+
+    </div> <div class="cursor-glow"></div>
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-ring"></div>
+
     <div class="page-overlay"></div>
 
-    
     <script src="script.js"></script>
+
 </body>
 </html>

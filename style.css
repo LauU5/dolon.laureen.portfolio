@@ -83,6 +83,41 @@ header a::after {
 header a:hover { opacity: 1; color: var(--accent); }
 header a:hover::after { width: 100%; }
 
+
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    /* On change flex-end en space-between pour séparer le logo du menu */
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to bottom, rgba(14, 10, 26, 0.97), transparent);
+    backdrop-filter: blur(6px);
+}
+
+/* Style de base pour que le logo ne soit pas géant */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--texte);
+    font-family: 'Cormorant Garamond', serif; /* Si tu utilises un logo texte */
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.logo img {
+    height: 60px; /* Ajuste cette valeur selon la taille de ton logo */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05); /* Petit effet de zoom stylé au survol */
+}
+
 /* ── HERO ── */
 .hero {
     min-height: 100vh;
@@ -91,6 +126,7 @@ header a:hover::after { width: 100%; }
     padding: 5rem 1.5rem 3rem;     /* mobile */
     position: relative;
 }
+
 
 @media (min-width: 768px) {
     .hero { padding: 6rem 4rem 4rem; }
@@ -955,4 +991,400 @@ h1 em { font-style: italic; color: var(--accent); }
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+}
+/* =====================================================
+   ── SECTION CV ──
+   ===================================================== */
+.cv-section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .cv-section { 
+        padding: 6rem 3rem; 
+    }
+}
+
+.cv-container h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 8vw, 3.5rem); /* Taille responsive comme tes autres titres */
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: var(--texte);
+}
+
+.cv-container p {
+    max-width: 550px;
+    margin: 0 auto 2.5rem;
+    font-size: 0.875rem;
+    line-height: 1.9;
+    color: var(--gris);
+}
+
+.cv-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Style de bouton principal (Plein) */
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    transition: all 0.4s ease;
+    
+    /* Couleurs du thème */
+    background: var(--accent);
+    color: var(--fond);
+    border: 1px solid var(--accent);
+}
+
+.btn-cv:hover {
+    background: transparent;
+    color: var(--accent);
+    box-shadow: 0 0 25px rgba(180, 138, 255, 0.2);
+}
+
+/* Style de bouton secondaire (Outline, similaire à ton hero-cta) */
+.btn-cv.outline {
+    background: transparent;
+    color: var(--accent);
+    border-color: rgba(180, 138, 255, 0.35);
+}
+
+.btn-cv.outline:hover {
+    background: var(--accent);
+    color: var(--fond);
+    border-color: var(--accent);
+    box-shadow: 0 0 25px rgba(180, 138, 255, 0.3);
+}
+
+/* Optionnel : Adaptation de l'iframe si tu affiches le PDF */
+.cv-embed iframe {
+    border: 1px solid rgba(180, 138, 255, 0.2) !important;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+/* Style de bouton principal (Plein) */
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    transition: all 0.4s ease;
+    
+    /* ── L'arrondi est ici ── */
+    border-radius: 50px; 
+    
+    /* Couleurs du thème */
+    background: var(--accent);
+    color: var(--fond);
+    border: 1px solid var(--accent);
+}
+/* =====================================================
+   ── 03. MON PARCOURS (Style Glassmorphism Centré) ──
+   ===================================================== */
+.timeline-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Ligne pointillée subtile au centre, en arrière-plan */
+.timeline-centered::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    border-left: 1px dashed rgba(180, 138, 255, 0.25);
+    z-index: 0;
+}
+
+/* Style spécifique des cartes du parcours */
+.timeline-card {
+    width: 100%;
+    max-width: 600px; /* Largeur maximale pour que ça reste élégant */
+    text-align: center;
+    align-items: center; /* Centre le contenu interne */
+    z-index: 1; /* Permet à la carte de passer au-dessus de la ligne pointillée */
+    padding: 2.5rem 2rem;
+    
+    /* On renforce un peu le fond pour masquer la ligne derrière le texte */
+    background: rgba(14, 10, 26, 0.6) !important; 
+    backdrop-filter: blur(20px) !important;
+}
+
+/* La date stylisée comme tes badges (HTML, CSS...) sur l'image */
+.timeline-date-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    
+    /* Style pilule */
+    background: rgba(180, 138, 255, 0.08);
+    border: 1px solid rgba(180, 138, 255, 0.25);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    
+    /* Léger glow */
+    box-shadow: 0 0 15px rgba(180, 138, 255, 0.05);
+}
+
+.timeline-card:hover .timeline-date-tag {
+    background: rgba(180, 138, 255, 0.15);
+    border-color: rgba(180, 138, 255, 0.5);
+    box-shadow: 0 0 20px rgba(180, 138, 255, 0.2);
+}
+/* =====================================================
+   ── PAGE À PROPOS (Style Éditorial & Glassmorphism) ──
+   ===================================================== */
+
+/* --- Conteneur global --- */
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem; /* Espace généreux entre les sections */
+}
+
+@media (min-width: 768px) {
+    .about-container { gap: 8rem; padding: 3rem 4rem 8rem; }
+}
+
+/* --- Sections Typographiques Épurées (01, 02, 04) --- */
+.elegant-section {
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Le petit numéro en haut à gauche */
+.absolute-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--texte);
+    opacity: 0.4;
+}
+
+/* Conteneur pour centrer le texte */
+.elegant-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+/* Le grand titre façon Éditorial */
+.elegant-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 300;
+    color: var(--texte);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+}
+
+.elegant-title em {
+    font-style: italic;
+    color: var(--texte);
+}
+
+/* Le paragraphe de description allégé */
+.elegant-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--gris);
+    max-width: 650px;
+}
+
+/* --- Section 02. Mes Outils --- */
+.tools-minimal-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin-top: 2rem;
+}
+
+.tools-minimal-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tools-minimal-group h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--texte);
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+}
+
+.centered-tags {
+    justify-content: center;
+    max-width: 700px;
+}
+
+/* Style Pilule pour les tags */
+.project-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(180, 138, 255, 0.05);
+    border: 1px solid rgba(180, 138, 255, 0.25);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.project-tag:hover {
+    background: rgba(180, 138, 255, 0.15);
+    border-color: rgba(180, 138, 255, 0.6);
+    box-shadow: 0 0 15px rgba(180, 138, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* --- Section 03. Mon Parcours (Glassmorphism Centré) --- */
+.timeline-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Ligne pointillée centrale */
+.timeline-centered::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    border-left: 1px dashed rgba(180, 138, 255, 0.25);
+    z-index: 0;
+}
+
+.timeline-card {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    align-items: center;
+    z-index: 1;
+    padding: 2.5rem 2rem;
+    background: rgba(14, 10, 26, 0.6) !important; 
+    backdrop-filter: blur(20px) !important;
+}
+
+.timeline-date-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(180, 138, 255, 0.08);
+    border: 1px solid rgba(180, 138, 255, 0.25);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(180, 138, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover .timeline-date-tag {
+    background: rgba(180, 138, 255, 0.15);
+    border-color: rgba(180, 138, 255, 0.5);
+    box-shadow: 0 0 20px rgba(180, 138, 255, 0.2);
+}
+
+/* --- Section 04. CV (Boutons) --- */
+.cv-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    background: var(--accent);
+    color: var(--fond);
+    border: 1px solid var(--accent);
+}
+
+.btn-cv:hover {
+    background: transparent;
+    color: var(--accent);
+    box-shadow: 0 0 25px rgba(180, 138, 255, 0.2);
+}
+
+.btn-cv.outline {
+    background: transparent;
+    color: var(--accent);
+    border-color: rgba(180, 138, 255, 0.35);
+}
+
+.btn-cv.outline:hover {
+    background: var(--accent);
+    color: var(--fond);
+    border-color: var(--accent);
+    box-shadow: 0 0 25px rgba(180, 138, 255, 0.3);
 }

@@ -11,7 +11,10 @@
 </head>
 <body>
 
-     <header>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/favicon.png" alt="Logo Portfolio">
+        </a>
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="projets.html">Projets</a></li>
@@ -23,13 +26,12 @@
     <main class="hero">
         <div class="hero-inner">
             <p class="hero-eyebrow">Créations personnelles</p>
-            <h1>Projets <em>Personnels</em></h1>
-            <p>Mes réalisations en dehors du cadre scolaire — sites web et affiches graphiques.</p>
+            <h1>Mes <em>Projets personnels</em></h1>
+            <p>Mes créations graphiques réalisées par passion.</p>
         </div>
     </main>
 
-     <!-- Banderole défilante -->
-    <div class="marquee-wrapper">
+      <div class="marquee-wrapper">
         <div class="marquee-track">
             <span>HTML</span><span class="sep">✦</span>
             <span>CSS</span><span class="sep">✦</span>
@@ -57,60 +59,9 @@
         </div>
     </div>
 
-    <!-- Filtres -->
-    <div class="filters">
-        <button class="filter-btn active" data-filter="all">Tous</button>
-        <button class="filter-btn" data-filter="sites">Sites Web</button>
-        <button class="filter-btn" data-filter="affiches">Affiches</button>
-    </div>
-
-    <!-- Sous-catégorie : Sites Web -->
     <section class="projects-section">
-        <div class="category-label">
-            <span class="category-line"></span>
-            <span class="category-name">Sites Web</span>
-            <span class="category-line"></span>
-        </div>
-
-        <article class="project-card" data-category="sites">
-            <div class="project-img project-img--empty">
-                <span class="project-img-label">Image du projet</span>
-            </div>
-            <div class="project-info">
-                <div class="project-tags">
-                    <span class="project-tag">HTML</span>
-                    <span class="project-tag">CSS</span>
-                </div>
-                <h2 class="project-title">Nom du site <em>01</em></h2>
-                <p class="project-desc">Courte description du projet. Expliquez l'objectif, les technologies utilisées et ce que vous avez appris.</p>
-                <a href="#" class="project-link">Voir le projet →</a>
-            </div>
-        </article>
-
-        <article class="project-card project-card--reverse" data-category="sites">
-            <div class="project-img project-img--empty">
-                <span class="project-img-label">Image du projet</span>
-            </div>
-            <div class="project-info">
-                <div class="project-tags">
-                    <span class="project-tag">React</span>
-                    <span class="project-tag">Figma</span>
-                </div>
-                <h2 class="project-title">Nom du site <em>02</em></h2>
-                <p class="project-desc">Courte description du projet. Expliquez l'objectif, les technologies utilisées et ce que vous avez appris.</p>
-                <a href="#" class="project-link">Voir le projet →</a>
-            </div>
-        </article>
-
-        <!-- Sous-catégorie : Affiches -->
-        <div class="category-label">
-            <span class="category-line"></span>
-            <span class="category-name">Affiches</span>
-            <span class="category-line"></span>
-        </div>
-
         <div class="posters-grid">
-            <article class="poster-card" data-category="affiches" onclick="openLightbox(this)">
+            <article class="poster-card" onclick="openLightbox(this)">
                 <div class="poster-img">
                     <img src="images/frutiger_aero.png" alt="Frutiger Aero">
                 </div>
@@ -119,29 +70,19 @@
                     <p class="poster-desc">Photoshop</p>
                 </div>
             </article>
-            <article class="poster-card" data-category="affiches" onclick="openLightbox(this)">
+            
+            <article class="poster-card" onclick="openLightbox(this)">
                 <div class="poster-img">
-                    <img src="images/affiche02.jpg" alt="Nom de l'affiche 02">
+                    <img src="images/Cadeaux Mamie.png" alt="Cadeaux Mamie">
                 </div>
                 <div class="poster-info">
-                    <h3 class="poster-title">Nom de l'affiche <em>02</em></h3>
-                    <p class="poster-desc">Outils / contexte</p>
-                </div>
-            </article>
-            <article class="poster-card" data-category="affiches" onclick="openLightbox(this)">
-                <div class="poster-img">
-                    <img src="images/affiche03.jpg" alt="Nom de l'affiche 03">
-                </div>
-                <div class="poster-info">
-                    <h3 class="poster-title">Nom de l'affiche <em>03</em></h3>
-                    <p class="poster-desc">Outils / contexte</p>
+                    <h3 class="poster-title">Cadeaux Anniversaire</h3>
+                    <p class="poster-desc">Photoshop</p>
                 </div>
             </article>
         </div>
-
     </section>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <button class="lightbox-close" onclick="closeLightbox()">✕</button>
         <div class="lightbox-content" onclick="event.stopPropagation()">
@@ -150,37 +91,9 @@
         </div>
     </div>
 
-    <!-- Overlay de transition -->
     <div class="page-overlay"></div>
 
-    
     <script>
-        // Filtres
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filter = btn.dataset.filter;
-                document.querySelectorAll('[data-category]').forEach(el => {
-                    if (filter === 'all' || el.dataset.category === filter) {
-                        el.style.display = '';
-                        el.style.animation = 'fadeUp 0.5s ease forwards';
-                    } else {
-                        el.style.display = 'none';
-                    }
-                });
-                document.querySelectorAll('.category-label').forEach(label => {
-                    label.style.display = filter === 'all' ? '' : 'none';
-                });
-                if (filter === 'sites') {
-                    document.querySelectorAll('.category-label')[0].style.display = '';
-                } else if (filter === 'affiches') {
-                    document.querySelectorAll('.category-label')[1].style.display = '';
-                }
-            });
-        });
-
-        // Lightbox
         function openLightbox(card) {
             const img = card.querySelector('img');
             const caption = card.querySelector('.poster-title').innerText;
