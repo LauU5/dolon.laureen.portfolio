@@ -22,9 +22,9 @@
 body {
     background: var(--fond);
     background-image:
-        radial-gradient(ellipse at 15% 10%, rgba(180, 138, 255, 0.22) 0%, transparent 55%),
-        radial-gradient(ellipse at 85% 80%, rgba(140, 80, 255, 0.15) 0%, transparent 55%),
-        radial-gradient(ellipse at 50% 50%, rgba(200, 170, 255, 0.08) 0%, transparent 70%);
+            radial-gradient(ellipse at 15% 10%, rgba(180, 138, 255, 0.22) 0%, transparent 55%),
+            radial-gradient(ellipse at 85% 80%, rgba(140, 80, 255, 0.15) 0%, transparent 55%),
+            radial-gradient(ellipse at 50% 50%, rgba(200, 170, 255, 0.08) 0%, transparent 70%);
     /* ⚠️ background-attachment:fixed retiré — bug iOS Safari */
     color: var(--texte);
     font-family: 'Montserrat', sans-serif;
@@ -39,7 +39,7 @@ header {
     top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;          /* mobile */
     background: linear-gradient(to bottom, rgba(14, 10, 26, 0.97), transparent);
@@ -83,39 +83,25 @@ header a::after {
 header a:hover { opacity: 1; color: var(--accent); }
 header a:hover::after { width: 100%; }
 
-
-header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    /* On change flex-end en space-between pour séparer le logo du menu */
-    justify-content: space-between; 
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(to bottom, rgba(14, 10, 26, 0.97), transparent);
-    backdrop-filter: blur(6px);
-}
-
 /* Style de base pour que le logo ne soit pas géant */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--texte);
-    font-family: 'Cormorant Garamond', serif; /* Si tu utilises un logo texte */
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 400;
 }
 
 .logo img {
-    height: 60px; /* Ajuste cette valeur selon la taille de ton logo */
+    height: 60px;
     width: auto;
     transition: transform 0.3s ease;
 }
 
 .logo:hover img {
-    transform: scale(1.05); /* Petit effet de zoom stylé au survol */
+    transform: scale(1.05);
 }
 
 /* ── HERO ── */
@@ -123,10 +109,9 @@ header {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    padding: 5rem 1.5rem 3rem;     /* mobile */
+    padding: 5rem 1.5rem 3rem;
     position: relative;
 }
-
 
 @media (min-width: 768px) {
     .hero { padding: 6rem 4rem 4rem; }
@@ -136,7 +121,7 @@ header {
     content: '';
     position: absolute;
     top: 15%; right: 8%;
-    width: 70vw; height: 70vw;    /* mobile : plus discret */
+    width: 70vw; height: 70vw;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(150, 80, 255, 0.1) 0%, transparent 70%);
     pointer-events: none;
@@ -150,7 +135,7 @@ header {
     content: '';
     position: absolute;
     bottom: 10%; left: 5%;
-    width: 50vw; height: 50vw;    /* mobile */
+    width: 50vw; height: 50vw;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(167, 118, 255, 0.07) 0%, transparent 70%);
     pointer-events: none;
@@ -177,7 +162,7 @@ header {
 
 h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.8rem, 11vw, 7rem); /* mobile : min plus petit */
+    font-size: clamp(2.8rem, 11vw, 7rem);
     font-weight: 300;
     line-height: 1.05;
     letter-spacing: -0.01em;
@@ -220,7 +205,7 @@ h1 em { font-style: italic; color: var(--accent); }
     letter-spacing: 0.2em;
     text-transform: uppercase;
     border: 1px solid rgba(180, 138, 255, 0.35);
-    padding: 1rem 2rem;            /* mobile : zone tactile généreuse */
+    padding: 1rem 2rem;
     transition: all 0.4s ease;
     opacity: 0;
     animation: fadeUp 1s ease 0.9s both;
@@ -319,7 +304,7 @@ h1 em { font-style: italic; color: var(--accent); }
 /* ── CARTES ── */
 .cards-section {
     display: grid;
-    grid-template-columns: 1fr;    /* mobile : 1 col */
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 3rem 1.5rem 5rem;
     max-width: 1100px;
@@ -346,7 +331,7 @@ h1 em { font-style: italic; color: var(--accent); }
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    padding: 1.8rem;               /* mobile */
+    padding: 1.8rem;
     text-decoration: none;
     color: var(--texte);
     background: rgba(255, 255, 255, 0.06);
@@ -356,8 +341,8 @@ h1 em { font-style: italic; color: var(--accent); }
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     box-shadow:
-        0 4px 32px rgba(130, 60, 255, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 1);
+            0 4px 32px rgba(130, 60, 255, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
     transition: box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
 }
 
@@ -388,15 +373,15 @@ h1 em { font-style: italic; color: var(--accent); }
     transform: translateY(-6px);
     border-color: rgba(180, 138, 255, 0.45);
     box-shadow:
-        0 8px 40px rgba(100, 40, 255, 0.15),
-        0 0 80px rgba(140, 80, 255, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 1);
+            0 8px 40px rgba(100, 40, 255, 0.15),
+            0 0 80px rgba(140, 80, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .card:hover::after {
     box-shadow:
-        0 0 30px 6px rgba(180, 138, 255, 0.18),
-        0 0 80px 12px rgba(140, 80, 255, 0.08);
+            0 0 30px 6px rgba(180, 138, 255, 0.18),
+            0 0 80px 12px rgba(140, 80, 255, 0.08);
 }
 
 .card-tag {
@@ -451,7 +436,7 @@ h1 em { font-style: italic; color: var(--accent); }
 
 /* ── 3 CARTES ── */
 .cards-section--three {
-    grid-template-columns: 1fr;    /* mobile : empilées */
+    grid-template-columns: 1fr;
     max-width: 1200px;
 }
 
@@ -473,14 +458,14 @@ h1 em { font-style: italic; color: var(--accent); }
 
 .cards-section--three .card-title {
     font-size: clamp(1.3rem, 4vw, 2rem);
-    white-space: normal;           /* mobile : pas de nowrap */
+    white-space: normal;
 }
 
 @media (min-width: 900px) {
     .cards-section--three .card-title { white-space: nowrap; }
 }
 
-/* ── LUEUR CURSEUR (desktop uniquement) ── */
+/* ── LUEUR CURSEUR ── */
 .cursor-glow {
     position: fixed;
     top: 0; left: 0;
@@ -498,19 +483,20 @@ h1 em { font-style: italic; color: var(--accent); }
     .cursor-glow { display: block; }
 }
 
-/* ── GRILLE PROJETS ── */
+/* ── GRILLE PROJETS (MODIFIÉ POUR ÊTRE SUR LA MÊME LIGNE) ── */
 .projects-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;        /* Aligne les projets sur la même ligne horizontalement */
+    flex-wrap: wrap;            /* Permet de passer à la ligne suivante si l'écran est trop étroit */
     gap: 3rem;
-    padding: 3rem 1.5rem 5rem;     /* mobile */
+    padding: 3rem 1.5rem 5rem;
     max-width: 1100px;
     margin: 0 auto;
 }
 
 @media (min-width: 768px) {
     .projects-section {
-        gap: 5rem;
+        gap: 4rem;
         padding: 4rem 3rem 6rem;
     }
 }
@@ -521,12 +507,16 @@ h1 em { font-style: italic; color: var(--accent); }
 
 .project-card {
     display: grid;
-    grid-template-columns: 1fr;    /* mobile : 1 col */
+    grid-template-columns: 1fr;
     gap: 2rem;
     align-items: center;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeUp 0.8s ease forwards;
+
+    /* Permet d'afficher 2 projets par ligne proprement */
+    flex: 1 1 calc(50% - 2rem);
+    min-width: 300px;
 }
 
 @media (min-width: 768px) {
@@ -658,7 +648,7 @@ h1 em { font-style: italic; color: var(--accent); }
 .filters {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;               /* mobile : retour à la ligne */
+    flex-wrap: wrap;
     gap: 0.7rem;
     padding: 2rem 1.5rem 0;
 }
@@ -680,7 +670,7 @@ h1 em { font-style: italic; color: var(--accent); }
     cursor: pointer;
     opacity: 0.6;
     transition: all 0.3s ease;
-    min-height: 44px;              /* taille tactile recommandée */
+    min-height: 44px;
 }
 
 @media (min-width: 768px) {
@@ -720,7 +710,7 @@ h1 em { font-style: italic; color: var(--accent); }
 /* ── GRILLE AFFICHES ── */
 .posters-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* mobile : 2 col */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
 }
 
@@ -752,8 +742,8 @@ h1 em { font-style: italic; color: var(--accent); }
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(180, 138, 255, 0.2);
     box-shadow:
-        0 4px 24px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            0 4px 24px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transition: box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
@@ -768,9 +758,9 @@ h1 em { font-style: italic; color: var(--accent); }
 .poster-card:hover .poster-img {
     border-color: rgba(180, 138, 255, 0.5);
     box-shadow:
-        0 8px 40px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(180, 138, 255, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+            0 8px 40px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(180, 138, 255, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .poster-img--empty {
@@ -831,7 +821,7 @@ h1 em { font-style: italic; color: var(--accent); }
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
-    max-width: 95vw;               /* mobile : quasi plein écran */
+    max-width: 95vw;
     max-height: 90vh;
     transform: scale(0.85);
     transition: transform 0.4s ease;
@@ -863,12 +853,12 @@ h1 em { font-style: italic; color: var(--accent); }
 
 .lightbox-close {
     position: fixed;
-    top: 1rem; right: 1rem;        /* mobile */
+    top: 1rem; right: 1rem;
     background: transparent;
     border: 1px solid rgba(180, 138, 255, 0.3);
     color: var(--texte);
     font-size: 1rem;
-    width: 3rem; height: 3rem;     /* mobile : plus grand, plus tactile */
+    width: 3rem; height: 3rem;
     border-radius: 50%;
     cursor: pointer;
     opacity: 0.8;
@@ -888,8 +878,7 @@ h1 em { font-style: italic; color: var(--accent); }
 
 .lightbox-close:hover { opacity: 1; border-color: var(--accent); color: var(--accent); }
 
-/* ── CURSEUR PERSONNALISÉ (desktop/souris uniquement) ── */
-/* Sur mobile aucun curseur custom — les touch devices n'ont pas de cursor */
+/* ── CURSEUR PERSONNALISÉ ── */
 @media (hover: hover) and (pointer: fine) {
     * { cursor: none !important; }
 }
@@ -984,7 +973,7 @@ h1 em { font-style: italic; color: var(--accent); }
     100% { transform: translateY(-110vh) translateX(var(--drift)) scale(1.1); opacity: 0; }
 }
 
-/* ── OPACITÉ CARTES (override final) ── */
+/* ── OPACITÉ CARTES ── */
 .project-card,
 .card,
 .poster-card {
@@ -992,6 +981,7 @@ h1 em { font-style: italic; color: var(--accent); }
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
+
 /* =====================================================
    ── SECTION CV ──
    ===================================================== */
@@ -1004,14 +994,14 @@ h1 em { font-style: italic; color: var(--accent); }
 }
 
 @media (min-width: 768px) {
-    .cv-section { 
-        padding: 6rem 3rem; 
+    .cv-section {
+        padding: 6rem 3rem;
     }
 }
 
 .cv-container h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 8vw, 3.5rem); /* Taille responsive comme tes autres titres */
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
     font-weight: 300;
     margin-bottom: 1.5rem;
     color: var(--texte);
@@ -1032,7 +1022,6 @@ h1 em { font-style: italic; color: var(--accent); }
     flex-wrap: wrap;
 }
 
-/* Style de bouton principal (Plein) */
 .btn-cv {
     display: inline-flex;
     align-items: center;
@@ -1043,8 +1032,7 @@ h1 em { font-style: italic; color: var(--accent); }
     text-transform: uppercase;
     padding: 1rem 2.5rem;
     transition: all 0.4s ease;
-    
-    /* Couleurs du thème */
+    border-radius: 50px;
     background: var(--accent);
     color: var(--fond);
     border: 1px solid var(--accent);
@@ -1056,7 +1044,6 @@ h1 em { font-style: italic; color: var(--accent); }
     box-shadow: 0 0 25px rgba(180, 138, 255, 0.2);
 }
 
-/* Style de bouton secondaire (Outline, similaire à ton hero-cta) */
 .btn-cv.outline {
     background: transparent;
     color: var(--accent);
@@ -1070,35 +1057,15 @@ h1 em { font-style: italic; color: var(--accent); }
     box-shadow: 0 0 25px rgba(180, 138, 255, 0.3);
 }
 
-/* Optionnel : Adaptation de l'iframe si tu affiches le PDF */
 .cv-embed iframe {
     border: 1px solid rgba(180, 138, 255, 0.2) !important;
     border-radius: 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     background: rgba(255, 255, 255, 0.05);
 }
-/* Style de bouton principal (Plein) */
-.btn-cv {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 1rem 2.5rem;
-    transition: all 0.4s ease;
-    
-    /* ── L'arrondi est ici ── */
-    border-radius: 50px; 
-    
-    /* Couleurs du thème */
-    background: var(--accent);
-    color: var(--fond);
-    border: 1px solid var(--accent);
-}
+
 /* =====================================================
-   ── 03. MON PARCOURS (Style Glassmorphism Centré) ──
+   ── 03. MON PARCOURS ──
    ===================================================== */
 .timeline-centered {
     display: flex;
@@ -1110,7 +1077,6 @@ h1 em { font-style: italic; color: var(--accent); }
     margin: 0 auto;
 }
 
-/* Ligne pointillée subtile au centre, en arrière-plan */
 .timeline-centered::before {
     content: '';
     position: absolute;
@@ -1123,21 +1089,17 @@ h1 em { font-style: italic; color: var(--accent); }
     z-index: 0;
 }
 
-/* Style spécifique des cartes du parcours */
 .timeline-card {
     width: 100%;
-    max-width: 600px; /* Largeur maximale pour que ça reste élégant */
+    max-width: 600px;
     text-align: center;
-    align-items: center; /* Centre le contenu interne */
-    z-index: 1; /* Permet à la carte de passer au-dessus de la ligne pointillée */
+    align-items: center;
+    z-index: 1;
     padding: 2.5rem 2rem;
-    
-    /* On renforce un peu le fond pour masquer la ligne derrière le texte */
-    background: rgba(14, 10, 26, 0.6) !important; 
+    background: rgba(14, 10, 26, 0.6) !important;
     backdrop-filter: blur(20px) !important;
 }
 
-/* La date stylisée comme tes badges (HTML, CSS...) sur l'image */
 .timeline-date-tag {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.7rem;
@@ -1145,17 +1107,14 @@ h1 em { font-style: italic; color: var(--accent); }
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent);
-    
-    /* Style pilule */
     background: rgba(180, 138, 255, 0.08);
     border: 1px solid rgba(180, 138, 255, 0.25);
     padding: 0.5rem 1.2rem;
     border-radius: 30px;
     margin-bottom: 0.5rem;
     display: inline-block;
-    
-    /* Léger glow */
     box-shadow: 0 0 15px rgba(180, 138, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
 .timeline-card:hover .timeline-date-tag {
@@ -1163,31 +1122,28 @@ h1 em { font-style: italic; color: var(--accent); }
     border-color: rgba(180, 138, 255, 0.5);
     box-shadow: 0 0 20px rgba(180, 138, 255, 0.2);
 }
-/* =====================================================
-   ── PAGE À PROPOS (Style Éditorial & Glassmorphism) ──
-   ===================================================== */
 
-/* --- Conteneur global --- */
+/* =====================================================
+   ── PAGE À PROPOS ──
+   ===================================================== */
 .about-container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 1.5rem 5rem;
     display: flex;
     flex-direction: column;
-    gap: 5rem; /* Espace généreux entre les sections */
+    gap: 5rem;
 }
 
 @media (min-width: 768px) {
     .about-container { gap: 8rem; padding: 3rem 4rem 8rem; }
 }
 
-/* --- Sections Typographiques Épurées (01, 02, 04) --- */
 .elegant-section {
     position: relative;
     padding: 2rem 0;
 }
 
-/* Le petit numéro en haut à gauche */
 .absolute-number {
     position: absolute;
     top: 0;
@@ -1199,7 +1155,6 @@ h1 em { font-style: italic; color: var(--accent); }
     opacity: 0.4;
 }
 
-/* Conteneur pour centrer le texte */
 .elegant-text-block {
     display: flex;
     flex-direction: column;
@@ -1210,7 +1165,6 @@ h1 em { font-style: italic; color: var(--accent); }
     padding-top: 2rem;
 }
 
-/* Le grand titre façon Éditorial */
 .elegant-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.8rem, 6vw, 4.5rem);
@@ -1226,7 +1180,6 @@ h1 em { font-style: italic; color: var(--accent); }
     color: var(--texte);
 }
 
-/* Le paragraphe de description allégé */
 .elegant-desc {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
@@ -1236,7 +1189,6 @@ h1 em { font-style: italic; color: var(--accent); }
     max-width: 650px;
 }
 
-/* --- Section 02. Mes Outils --- */
 .tools-minimal-container {
     width: 100%;
     display: flex;
@@ -1264,127 +1216,4 @@ h1 em { font-style: italic; color: var(--accent); }
 .centered-tags {
     justify-content: center;
     max-width: 700px;
-}
-
-/* Style Pilule pour les tags */
-.project-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(180, 138, 255, 0.05);
-    border: 1px solid rgba(180, 138, 255, 0.25);
-    padding: 0.6rem 1.2rem;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.project-tag:hover {
-    background: rgba(180, 138, 255, 0.15);
-    border-color: rgba(180, 138, 255, 0.6);
-    box-shadow: 0 0 15px rgba(180, 138, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-/* --- Section 03. Mon Parcours (Glassmorphism Centré) --- */
-.timeline-centered {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Ligne pointillée centrale */
-.timeline-centered::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    border-left: 1px dashed rgba(180, 138, 255, 0.25);
-    z-index: 0;
-}
-
-.timeline-card {
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    align-items: center;
-    z-index: 1;
-    padding: 2.5rem 2rem;
-    background: rgba(14, 10, 26, 0.6) !important; 
-    backdrop-filter: blur(20px) !important;
-}
-
-.timeline-date-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(180, 138, 255, 0.08);
-    border: 1px solid rgba(180, 138, 255, 0.25);
-    padding: 0.5rem 1.2rem;
-    border-radius: 30px;
-    margin-bottom: 1rem;
-    display: inline-block;
-    box-shadow: 0 0 15px rgba(180, 138, 255, 0.05);
-    transition: all 0.3s ease;
-}
-
-.timeline-card:hover .timeline-date-tag {
-    background: rgba(180, 138, 255, 0.15);
-    border-color: rgba(180, 138, 255, 0.5);
-    box-shadow: 0 0 20px rgba(180, 138, 255, 0.2);
-}
-
-/* --- Section 04. CV (Boutons) --- */
-.cv-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.btn-cv {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    transition: all 0.4s ease;
-    background: var(--accent);
-    color: var(--fond);
-    border: 1px solid var(--accent);
-}
-
-.btn-cv:hover {
-    background: transparent;
-    color: var(--accent);
-    box-shadow: 0 0 25px rgba(180, 138, 255, 0.2);
-}
-
-.btn-cv.outline {
-    background: transparent;
-    color: var(--accent);
-    border-color: rgba(180, 138, 255, 0.35);
-}
-
-.btn-cv.outline:hover {
-    background: var(--accent);
-    color: var(--fond);
-    border-color: var(--accent);
-    box-shadow: 0 0 25px rgba(180, 138, 255, 0.3);
 }
