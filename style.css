@@ -55,6 +55,7 @@ html {
 body {
     background-color: #E3EDFF;
     color: var(--nuit);
+    font-family: var(--corps);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
